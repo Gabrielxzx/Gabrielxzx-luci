@@ -10,6 +10,6 @@ LUCI_DEPENDS:=
 LUCI_PKGARCH:=all
 PKG_RELEASE:=3
 
-include ../../luci.mk
+include $(TOPDIR)/feeds/luci/luci.mk
 
 # call BuildPackage - OpenWrt buildroot signature
