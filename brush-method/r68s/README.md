@@ -3,8 +3,13 @@
 ## 刷机准备
 
 - 工具：A-C数据线/A-A数据线
-- 软件：RKDevTool_Release_v2.84.rar
+- 软件：RKDevTool_Release_v2.84.rar / DriverAssitant_v5.1.1.zip
 - 下载好的R68S固件
+
+## 安装驱动
+
+- 解压`DriverAssitant_v5.1.1.zip`
+- 双击`DriverInstall.exe`，在弹出的界面中点击`驱动安装`
 
 ## 软件进maskrom刷机模式方法
 
