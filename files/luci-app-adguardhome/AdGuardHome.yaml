@@ -111,7 +111,7 @@ filters:
     url: https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt
     name: AdGuard Home
     id: 1
-  - enabled: true
+  - enabled: false
     url: https://raw.iqiq.io/banbendalao/ADgk/master/ADgk.txt
     name: AD-gk
     id: 2
