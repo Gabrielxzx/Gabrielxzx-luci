@@ -28,3 +28,11 @@
 - 点击`执行`按钮，等待固件刷写完毕
 - 刷写完毕后，R68S断电重启即可
 <img src="https://raw.githubusercontent.com/Gabrielxzx/Gabrielxzx-luci/master/brush-method/r68s/r68s%E5%88%B7%E6%9C%BA%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95.png" width="700" />
+
+## 启动后无法进入luci
+- 如选用 SquashFS 格式固件，建议刷写成功后 SSH 登入运行命令`firstboot -y && reboot now`完全清理。
+
+## 鸣谢
+
+- 感谢 Nick 大佬的[NanoPi-R2S 操作手册](https://nicholas-opensource.github.io/R2S-Wiki/#/)  
+
