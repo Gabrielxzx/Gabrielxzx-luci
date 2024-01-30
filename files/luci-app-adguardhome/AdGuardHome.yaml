@@ -61,6 +61,7 @@ dns:
   ipset: []
   ipset_file: ""
   bootstrap_prefer_ipv6: false
+  safesearch_enabled: false
   upstream_timeout: 10s
   private_networks: []
   use_private_ptr_resolvers: true
@@ -96,7 +97,6 @@ statistics:
     - '||dataflow.biliapi.com^'
     - '||umeng.com^'
     - '||sentry.io^'
-  interval: 168h
   enabled: true
 filters:
   - enabled: true
