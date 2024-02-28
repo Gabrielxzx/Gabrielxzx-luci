@@ -102,7 +102,7 @@ filters:
     name: AdGuard Home
     id: 1
   - enabled: false
-    url: https://raw.iqiq.io/banbendalao/ADgk/master/ADgk.txt
+    url: https://cdn.jsdelivr.net/gh/banbendalao/ADgk@master/ADgk.txt
     name: AD-gk
     id: 2
   - enabled: true
