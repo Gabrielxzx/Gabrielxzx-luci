@@ -126,12 +126,12 @@ filters:
     name: 'CHN: AdRules DNS List'
     id: 7
   - enabled: true
-    url: https://raw.githubusercontent.com/Gabrielxzx/Gabrielxzx-luci/master/files/others/miTVhosts
+    url: https://github.com/Gabrielxzx/Gabrielxzx-luci/releases/download/Stable_Files/miTVhosts
     name: miTVhosts
     id: 8
 whitelist_filters:
   - enabled: true
-    url: https://raw.githubusercontent.com/Gabrielxzx/Gabrielxzx-luci/master/files/luci-app-adguardhome/rules/allow-domains-list.txt
+    url: https://github.com/Gabrielxzx/Gabrielxzx-luci/releases/download/Stable_Files/allow-domains-list.txt
     name: allow-domains-list
     id: 9
 user_rules:
