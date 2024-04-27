@@ -1,0 +1,54 @@
+#!/bin/sh /etc/rc.common
+# Copyright (c) 2011-2015 OpenWrt.org
+
+START=91
+
+add_static_ip() {
+
+	uci -q batch <<-EOF >/dev/null
+		add dhcp host
+		set dhcp.@host[-1].name=K2P
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=68:DB:54:E7:BD:80
+		set dhcp.@host[-1].ip=192.168.2.20
+		set dhcp.@host[-1].leasetime=12h
+		
+		add dhcp host
+		set dhcp.@host[-1].name=TL-SG2008D
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=3C:6A:48:2E:FA:35
+		set dhcp.@host[-1].ip=192.168.2.30
+		set dhcp.@host[-1].leasetime=12h
+		
+		add dhcp host
+		set dhcp.@host[-1].name=Panther_X2
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=D6:90:C6:2C:A4:D4
+		set dhcp.@host[-1].ip=192.168.2.50
+		set dhcp.@host[-1].leasetime=12h
+		
+		commit dhcp
+	EOF
+
+	/etc/init.d/dnsmasq restart
+	exit 0
+}
+
+start() {
+
+	local static_host_name=$(uci -q get dhcp.@host[$index].name)
+	
+	
+	if [ "$static_host_name" == "K2P" ]; then
+	
+		echo "The static_ip has added"
+		
+	else
+		add_static_ip
+	fi
+
+}
+
+stop() {
+    echo stop
+}
