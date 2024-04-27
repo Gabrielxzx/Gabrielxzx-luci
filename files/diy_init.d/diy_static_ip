@@ -41,10 +41,13 @@ start() {
 	
 	if [ "$static_host_name" == "K2P" ]; then
 	
-		echo "The static_ip has added"
+		echo "The static_ip has already exits"
 		
 	else
 		add_static_ip
+
+		echo "The static_ip has added success"
+
 	fi
 
 }
