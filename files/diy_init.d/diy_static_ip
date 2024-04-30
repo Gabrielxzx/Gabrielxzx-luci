@@ -38,16 +38,26 @@ start() {
 
 	local static_host_name=$(uci -q get dhcp.@host[$index].name)
 	
+	local op_lan_ipaddr=$(uci get network.lan.ipaddr)
 	
-	if [ "$static_host_name" == "K2P" ]; then
+	if [ "$op_lan_ipaddr" == "192.168.2.1" ]; then
 	
-		echo "The static_ip has already exits"
+		if [ "$static_host_name" == "K2P" ]; then
+		
+			echo "The static_ip has already exit"
+			
+		else
+		
+			add_static_ip
+			
+			echo "The static_ip has added success"
+		
+		fi
 		
 	else
-		add_static_ip
-
-		echo "The static_ip has added success"
-
+	
+		echo "The device is sideroute"
+	
 	fi
 
 }
