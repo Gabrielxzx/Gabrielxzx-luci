@@ -1,0 +1,14 @@
+!Title: White-List
+!Version: 202405121807
+!!!This list only applies to "AdGuard Home".
+!Total lines: 9
+
+@@||taobao.com^
+@@||tmall.com^
+@@||jd.com^
+@@||iwx.mail.qq.com^
+@@||gm.mmstat.com^
+@@||pan.quark.cn^
+@@||uop.quark.cn^
+@@||pdds.quark.cn^
+@@||mcdn.bilivideo.cn^
