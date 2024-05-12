@@ -34,11 +34,36 @@ add_static_ip() {
 	exit 0
 }
 
+set_sideroute_ip() {
+
+	uci -q batch <<-EOF >/dev/null
+		set network.lan.gateway=192.168.2.1
+		set network.lan.dns=192.168.2.1
+		
+		commit network
+		
+		delete dhcp.lan.ra_management='1'
+		delete dhcp.lan.start='100'
+		delete dhcp.lan.limit='150'
+		delete dhcp.lan.leasetime='12h'
+		set dhcp.lan.ignore='1'
+		
+		commit dhcp
+	EOF
+
+	/etc/init.d/dnsmasq restart
+	exit 0
+}
+
+
+
 start() {
 
 	local static_host_name=$(uci -q get dhcp.@host[$index].name)
 	
 	local op_lan_ipaddr=$(uci get network.lan.ipaddr)
+	
+	local op_lan_gateway=$(uci get network.lan.gateway)
 	
 	if [ "$op_lan_ipaddr" == "192.168.2.1" ]; then
 	
@@ -58,6 +83,18 @@ start() {
 	
 		echo "The device is sideroute"
 	
+		if [ "$op_lan_gateway" == "192.168.2.1" ]; then
+		
+			echo "This sideroute has already setted"
+			
+		else
+		
+			set_sideroute_ip
+			
+			echo "The sideroute_ip has setted success"
+		
+		fi
+		
 	fi
 
 }
