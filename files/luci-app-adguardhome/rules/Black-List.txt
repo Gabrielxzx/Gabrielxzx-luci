@@ -4,9 +4,9 @@
 !米家app需要前两行,不用米家可以取消注释
 !Total lines: 123
 
-# 小米
-# 127.0.0.1 api.io.mi.com
-# 127.0.0.1 device.io.mi.com
+!!!小米
+!!!127.0.0.1 api.io.mi.com
+!!!127.0.0.1 device.io.mi.com
 127.0.0.1 519332DA.rtc.youme.im
 127.0.0.1 ad.doubleclick.net
 127.0.0.1 ad.hpplay.cn
