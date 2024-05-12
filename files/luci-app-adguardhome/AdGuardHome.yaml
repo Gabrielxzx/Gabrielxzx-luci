@@ -98,51 +98,52 @@ statistics:
   enabled: true
 filters:
   - enabled: true
+    url: https://raw.githubusercontent.com/Gabrielxzx/Gabrielxzx-luci/master/files/luci-app-adguardhome/rules/Black-List.txt
+    name: My-BlackList
+    id: 101
+  - enabled: true
     url: https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt
     name: AdGuard Home
-    id: 1
+    id: 102
   - enabled: false
     url: https://cdn.jsdelivr.net/gh/banbendalao/ADgk@master/ADgk.txt
     name: AD-gk
-    id: 2
+    id: 103
   - enabled: true
     url: https://anti-ad.net/easylist.txt
     name: anti-AD
-    id: 3
+    id: 104
   - enabled: true
     url: https://raw.githubusercontent.com/o0HalfLife0o/list/master/ad.txt
     name: HalfLife
-    id: 4
+    id: 105
   - enabled: true
     url: https://easylist-downloads.adblockplus.org/easyprivacy.txt
     name: EasyPrivacy
-    id: 5
+    id: 106
   - enabled: true
     url: https://easylist-downloads.adblockplus.org/easylistchina+easylist.txt
     name: EasyList China+EasyList
-    id: 6
+    id: 107
   - enabled: true
     url: https://adguardteam.github.io/HostlistsRegistry/assets/filter_29.txt
     name: 'CHN: AdRules DNS List'
-    id: 7
-  - enabled: true
-    url: https://github.com/Gabrielxzx/Gabrielxzx-luci/releases/download/Stable_Files/miTVhosts
-    name: miTVhosts
-    id: 8
+    id: 108
 whitelist_filters:
+  - enabled: true
+    url: https://raw.githubusercontent.com/Gabrielxzx/Gabrielxzx-luci/master/files/luci-app-adguardhome/rules/White-List.txt
+    name: My-WhiteList
+    id: 201
   - enabled: true
     url: https://github.com/Gabrielxzx/Gabrielxzx-luci/releases/download/Stable_Files/allow-domains-list.txt
     name: allow-domains-list
-    id: 9
+    id: 202
+  - enabled: true
+    url: https://raw.githubusercontent.com/privacy-protection-tools/dead-horse/master/anti-ad-white-list.txt
+    name: anti-ad-white-list
+    id: 203
 user_rules:
   - '@@||taobao.com^$important'
-  - '@@||tmall.com^$important'
-  - '@@||jd.com^important'
-  - '@@||iwx.mail.qq.com^$important'
-  - '@@||gm.mmstat.com^$important'
-  - '@@||pan.quark.cn^$important'
-  - '@@||uop.quark.cn^$important'
-  - '@@||pdds.quark.cn^$important'
 dhcp:
   enabled: false
   interface_name: ""
