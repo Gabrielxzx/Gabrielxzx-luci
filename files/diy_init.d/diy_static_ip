@@ -41,14 +41,6 @@ set_sideroute_ip() {
 		set network.lan.dns=192.168.2.1
 		
 		commit network
-		
-		delete dhcp.lan.ra_management='1'
-		delete dhcp.lan.start='100'
-		delete dhcp.lan.limit='150'
-		delete dhcp.lan.leasetime='12h'
-		set dhcp.lan.ignore='1'
-		
-		commit dhcp
 	EOF
 
 	/etc/init.d/dnsmasq restart
