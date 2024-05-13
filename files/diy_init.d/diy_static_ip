@@ -43,7 +43,7 @@ set_sideroute_ip() {
 		commit network
 	EOF
 
-	/etc/init.d/dnsmasq restart
+	/etc/init.d/network restart
 	exit 0
 }
 
