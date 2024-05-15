@@ -1,7 +1,7 @@
 !Title: White-List
-!Version: 202405121807
+!Version: 202405160033
 !!!This list only applies to "AdGuard Home".
-!Total lines: 9
+!Total lines: 14
 
 @@||taobao.com^
 @@||tmall.com^
@@ -12,3 +12,8 @@
 @@||uop.quark.cn^
 @@||pdds.quark.cn^
 @@||mcdn.bilivideo.cn^
+@@||api.dianshihome.com^
+@@||cdn.dianshihome.com^
+@@||api.dianshige.com^
+@@||pushapi.tvfuwu.com^
+@@||pushapi.cdnimg.org^
