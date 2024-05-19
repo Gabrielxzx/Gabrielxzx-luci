@@ -1,7 +1,7 @@
 #!/bin/sh /etc/rc.common
 # Copyright (c) 2011-2015 OpenWrt.org
 
-START=91
+START=21
 
 add_static_ip() {
 
@@ -47,6 +47,16 @@ set_sideroute_ip() {
 	exit 0
 }
 
+set_default_theme() {
+
+	uci -q batch <<-EOF >/dev/null
+		set luci.main.mediaurlbase=/luci-static/netgear
+		
+		commit luci
+	EOF
+
+	exit 0
+}
 
 
 start() {
@@ -67,6 +77,8 @@ start() {
 		
 			add_static_ip
 			
+			set_default_theme
+			
 			echo "The static_ip has added success"
 		
 		fi
@@ -82,6 +94,8 @@ start() {
 		else
 		
 			set_sideroute_ip
+			
+			set_default_theme
 			
 			echo "The sideroute_ip has setted success"
 		
