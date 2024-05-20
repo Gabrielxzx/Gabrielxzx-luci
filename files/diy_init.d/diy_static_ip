@@ -31,7 +31,7 @@ add_static_ip() {
 	EOF
 
 	/etc/init.d/dnsmasq restart
-	exit 0
+	return 0
 }
 
 set_sideroute_ip() {
@@ -44,7 +44,7 @@ set_sideroute_ip() {
 	EOF
 
 	/etc/init.d/network restart
-	exit 0
+	return 0
 }
 
 set_default_theme() {
@@ -55,7 +55,7 @@ set_default_theme() {
 		commit luci
 	EOF
 
-	exit 0
+	return 0
 }
 
 
@@ -102,7 +102,8 @@ start() {
 		fi
 		
 	fi
-
+	
+	exit 0
 }
 
 stop() {
