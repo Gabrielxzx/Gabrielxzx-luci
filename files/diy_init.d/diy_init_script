@@ -50,7 +50,7 @@ set_sideroute_ip() {
 set_default_theme() {
 
 	uci -q batch <<-EOF >/dev/null
-		set luci.main.mediaurlbase=/luci-static/netgear
+		set luci.main.mediaurlbase=/luci-static/argone
 		
 		commit luci
 	EOF
