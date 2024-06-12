@@ -1,0 +1,61 @@
+#!/bin/sh
+#============================================================
+# File name: update-adguard-core
+# Description: update adguard core
+# Author: Gabrielxzx
+# https://github.com/Gabrielxzx
+#============================================================
+
+echo "
+***********************************************
+               选择你的设备架构
+			   
+               1.armv5
+               2.armv6
+               3.armv7
+               4.arm64
+               5.x86
+               6.x86_64
+                
+***********************************************
+"
+
+read -p "输入你的设备架构:" device
+if [ $device == 1 ]; then
+	Device=armv5
+elif [ $device == 2 ]; then
+	Device=armv6
+elif [ $device == 3 ]; then
+	Device=armv7
+elif [ $device == 4 ]; then
+	Device=arm64
+elif [ $device == 5 ]; then
+	Device=386
+elif [ $device == 6 ]; then
+	Device=amd64
+fi
+
+AGH_CORE=$(curl -sL https://api.github.com/repos/AdguardTeam/AdGuardHome/releases/latest | grep /AdGuardHome_linux_$Device | awk -F '"' '{print $4}')
+
+
+wget -q $AGH_CORE
+
+tar -zxvf AdGuardHome_linux_$Device.tar.gz
+
+/etc/init.d/AdGuardHome stop
+
+mv AdGuardHome/AdGuardHome /usr/bin
+
+chmod +x /usr/bin/AdGuardHome
+
+rm -rf /root/AdGuardHome_linux_$Device.tar.gz
+rm -rf /root/AdGuardHome
+
+read -p "是否运行AdGuard Home:" AdGuardHome_state
+
+if [ -z "$AdGuardHome_state" ]; then
+    /etc/init.d/AdGuardHome restart
+else
+	echo AdGuardHome已停止运行
+fi
+
