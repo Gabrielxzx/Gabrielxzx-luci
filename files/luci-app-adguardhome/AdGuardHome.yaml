@@ -26,7 +26,7 @@ dns:
     - https://doh.pub/dns-query
     - tls://dot.pub
     - https://doh.360.cn/dns-query
-    - tls://dot.360.cn
+    - '# tls://dot.360.cn'
   upstream_dns_file: ""
   bootstrap_dns:
     - 114.114.114.114
