@@ -62,7 +62,7 @@ rm -rf /root/AdGuardHome
 
 if [ "$AdGuardHome_state" == "'1'" ]; then
 
-    /etc/init.d/AdGuardHome start
+	/etc/init.d/AdGuardHome start
 
 else
 
