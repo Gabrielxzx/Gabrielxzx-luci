@@ -7,25 +7,32 @@ add_static_ip() {
 
 	uci -q batch <<-EOF >/dev/null
 		add dhcp host
-		set dhcp.@host[-1].name=K2P
+		set dhcp.@host[-1].name=K2P_1
 		set dhcp.@host[-1].dns=1
 		set dhcp.@host[-1].mac=68:DB:54:E7:BD:80
-		set dhcp.@host[-1].ip=192.168.${1}.20
-		set dhcp.@host[-1].leasetime=12h
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.20
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=K2P_2
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=74:7D:24:93:9A:10
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.21
+		set dhcp.@host[-1].leasetime=infinite
 		
 		add dhcp host
 		set dhcp.@host[-1].name=TL-SG2008D
 		set dhcp.@host[-1].dns=1
 		set dhcp.@host[-1].mac=3C:6A:48:2E:FA:35
-		set dhcp.@host[-1].ip=192.168.${1}.30
-		set dhcp.@host[-1].leasetime=12h
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.30
+		set dhcp.@host[-1].leasetime=infinite
 		
 		add dhcp host
 		set dhcp.@host[-1].name=Panther_X2
 		set dhcp.@host[-1].dns=1
 		set dhcp.@host[-1].mac=D6:90:C6:2C:A4:D4
-		set dhcp.@host[-1].ip=192.168.${1}.50
-		set dhcp.@host[-1].leasetime=12h
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.50
+		set dhcp.@host[-1].leasetime=infinite
 		
 		commit dhcp
 	EOF
@@ -37,8 +44,8 @@ add_static_ip() {
 set_sideroute_ip() {
 
 	uci -q batch <<-EOF >/dev/null
-		set network.lan.gateway=192.168.${1}.1
-		set network.lan.dns=192.168.${1}.1
+		set network.lan.gateway=${1}.${2}.${3}.1
+		set network.lan.dns=${1}.${2}.${3}.1
 		
 		commit network
 	EOF
@@ -64,6 +71,8 @@ start() {
 	local static_host_name=$(uci -q get dhcp.@host[$index].name)
 	
 	local op_lan_ipaddr=$(uci get network.lan.ipaddr)
+	local op_lan_ipaddr_1st=$(uci get network.lan.ipaddr | awk -F '.' '{print $1}')
+	local op_lan_ipaddr_2nd=$(uci get network.lan.ipaddr | awk -F '.' '{print $2}')
 	local op_lan_ipaddr_3rd=$(uci get network.lan.ipaddr | awk -F '.' '{print $3}')
 	local op_lan_ipaddr_4th=$(uci get network.lan.ipaddr | awk -F '.' '{print $4}')
 	
@@ -72,13 +81,13 @@ start() {
 	
 	if [ "$op_lan_ipaddr_4th" == "1" ]; then
 	
-		if [ "$static_host_name" == "K2P" ]; then
+		if [ "$static_host_name" == "K2P_1" ]; then
 		
 			echo "The static_ip has already exit"
 			
 		else
 		
-			add_static_ip $op_lan_ipaddr_3rd
+			add_static_ip $op_lan_ipaddr_1st $op_lan_ipaddr_2nd $op_lan_ipaddr_3rd
 			
 			set_default_theme
 			
@@ -96,7 +105,7 @@ start() {
 			
 		else
 		
-			set_sideroute_ip $op_lan_ipaddr_3rd
+			set_sideroute_ip $op_lan_ipaddr_1st $op_lan_ipaddr_2nd $op_lan_ipaddr_3rd
 			
 			set_default_theme
 			
