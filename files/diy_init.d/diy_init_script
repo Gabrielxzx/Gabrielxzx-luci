@@ -96,6 +96,19 @@ set_default_theme() {
 	return 0
 }
 
+remove_https() {
+
+	uci -q batch <<-EOF >/dev/null
+		del_list uhttpd.main.listen_https='0.0.0.0:443'
+		del_list uhttpd.main.listen_https='[::]:443'
+		
+		commit uhttpd
+	EOF
+
+	/etc/init.d/uhttpd restart
+	return 0
+}
+
 
 start() {
 
@@ -115,6 +128,8 @@ start() {
 	local static_host_ip_2nd=$(uci -q get dhcp.@host[0].ip | awk -F '.' '{print $2}')
 	local static_host_ip_3rd=$(uci -q get dhcp.@host[0].ip | awk -F '.' '{print $3}')
 	local static_host_ip_4th=$(uci -q get dhcp.@host[0].ip | awk -F '.' '{print $4}')
+	
+	local device_distrib_target=$(cat /etc/openwrt_release | grep DISTRIB_TARGET | awk -F "'" '{print $2}')
 	
 	if [ "$op_lan_ipaddr_4th" == "1" ]; then
 	
@@ -143,6 +158,18 @@ start() {
 			set_default_theme
 			
 			echo "The static_ip has added success"
+			
+			if [ "$device_distrib_target" == "armvirt/64" ]; then
+			
+				remove_https
+				
+				echo "remove_https success"
+				
+			else
+				
+				echo "The device donot need remove https"
+				
+			fi
 		
 		fi
 		
@@ -161,6 +188,18 @@ start() {
 			set_default_theme
 			
 			echo "The sideroute_ip has setted success"
+			
+			if [ "$device_distrib_target" == "armvirt/64" ]; then
+			
+				remove_https
+				
+				echo "remove_https success"
+				
+			else
+				
+				echo "The device donot need remove https"
+				
+			fi
 		
 		fi
 
