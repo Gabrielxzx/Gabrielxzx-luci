@@ -109,6 +109,18 @@ remove_https() {
 	return 0
 }
 
+set_amlogic_options() {
+
+	uci -q batch <<-EOF >/dev/null
+		set amlogic.config.amlogic_firmware_repo=https://github.com/Gabrielxzx/Actions-OpenWrt
+		set amlogic.config.amlogic_firmware_tag=lede
+		
+		commit amlogic
+	EOF
+
+	return 0
+}
+
 
 start() {
 
@@ -162,12 +174,13 @@ start() {
 			if [ "$device_distrib_target" == "armvirt/64" ]; then
 			
 				remove_https
+				set_amlogic_options
 				
-				echo "remove_https success"
+				echo "armvirt/64 init success"
 				
 			else
 				
-				echo "The device donot need remove https"
+				echo "The device donot need armvirt/64 init"
 				
 			fi
 		
