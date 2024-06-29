@@ -113,7 +113,7 @@ set_amlogic_options() {
 
 	uci -q batch <<-EOF >/dev/null
 		set amlogic.config.amlogic_firmware_repo=https://github.com/Gabrielxzx/Actions-OpenWrt
-		set amlogic.config.amlogic_firmware_tag=Armvirt
+		set amlogic.config.amlogic_firmware_tag=Armvirt_64
 		
 		commit amlogic
 	EOF
