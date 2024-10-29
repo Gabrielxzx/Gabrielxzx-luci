@@ -44,7 +44,7 @@ add_static_ip() {
 		add dhcp host
 		set dhcp.@host[-1].name=PHICOMM_E1
 		set dhcp.@host[-1].dns=1
-		set dhcp.@host[-1].mac=68:DB:54:DC:D8:DC
+		set dhcp.@host[-1].mac=68:DB:54:DC:D8:DD
 		set dhcp.@host[-1].ip=${1}.${2}.${3}.25
 		set dhcp.@host[-1].leasetime=infinite
 		
