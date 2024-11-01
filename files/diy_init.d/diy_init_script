@@ -237,7 +237,7 @@ start() {
 	
 		echo "The device is mainroute"
 	
-		if [ "$static_host_name" == "K2P_1" ]; then
+		if [ "$static_host_name" == "PHICOMM_K2P_MTK_1" ]; then
 		
 			echo "The static_ip has already exit"
 			
