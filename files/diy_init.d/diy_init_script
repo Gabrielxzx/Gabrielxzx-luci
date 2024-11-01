@@ -45,16 +45,51 @@ add_static_ip() {
 		set dhcp.@host[-1].name=PHICOMM_E1
 		set dhcp.@host[-1].dns=1
 		set dhcp.@host[-1].mac=68:DB:54:DC:D8:DD
-		set dhcp.@host[-1].ip=${1}.${2}.${3}.25
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.30
 		set dhcp.@host[-1].leasetime=infinite
 		
 		add dhcp host
 		set dhcp.@host[-1].name=PHICOMM_K2_1
 		set dhcp.@host[-1].dns=1
 		set dhcp.@host[-1].mac=CC:81:DA:4E:66:A1
-		set dhcp.@host[-1].ip=${1}.${2}.${3}.26
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.31
 		set dhcp.@host[-1].leasetime=infinite
 		
+		add dhcp host
+		set dhcp.@host[-1].name=PHICOMM_K2_2
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=D8:C8:E9:52:62:11
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.32
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=PHICOMM_K2_3
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=74:7D:24:F6:1B:81
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.33
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=PHICOMM_K2_4
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=2C:B2:1A:33:7D:C1
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.34
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=PHICOMM_K2_5
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=2C:B2:1A:34:18:69
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.35
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=PHICOMM_K2_6
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=FC:7C:02:55:98:26
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.36
+		set dhcp.@host[-1].leasetime=infinite
+
 		add dhcp host
 		set dhcp.@host[-1].name=TL-SG2008D
 		set dhcp.@host[-1].dns=1
@@ -84,10 +119,15 @@ fix_static_ip() {
 		set dhcp.@host[2].ip=${1}.${2}.${3}.22
 		set dhcp.@host[3].ip=${1}.${2}.${3}.23
 		set dhcp.@host[4].ip=${1}.${2}.${3}.24
-		set dhcp.@host[5].ip=${1}.${2}.${3}.25
-		set dhcp.@host[6].ip=${1}.${2}.${3}.26
-		set dhcp.@host[7].ip=${1}.${2}.${3}.40
-		set dhcp.@host[8].ip=${1}.${2}.${3}.50
+		set dhcp.@host[5].ip=${1}.${2}.${3}.30
+		set dhcp.@host[6].ip=${1}.${2}.${3}.31
+		set dhcp.@host[7].ip=${1}.${2}.${3}.32
+		set dhcp.@host[8].ip=${1}.${2}.${3}.33
+		set dhcp.@host[9].ip=${1}.${2}.${3}.34
+		set dhcp.@host[10].ip=${1}.${2}.${3}.35
+		set dhcp.@host[11].ip=${1}.${2}.${3}.36
+		set dhcp.@host[12].ip=${1}.${2}.${3}.40
+		set dhcp.@host[13].ip=${1}.${2}.${3}.50
 		
 		commit dhcp
 	EOF
@@ -99,6 +139,11 @@ fix_static_ip() {
 remove_static_ip() {
 
 	uci -q batch <<-EOF >/dev/null
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
 		delete dhcp.@host[-1]
 		delete dhcp.@host[-1]
 		delete dhcp.@host[-1]
