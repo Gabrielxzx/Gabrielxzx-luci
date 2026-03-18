@@ -128,3 +128,6 @@
 127.0.0.1 vipauth.hpplay.cn
 127.0.0.1 vipsdkauth.hpplay.cn
 127.0.0.1 vv.play.aiseet.atianqi.com
+127.0.0.1 vv.play.aiseet.atianqi.com
+127.0.0.1 pixiv.net
+127.0.0.1 www.pixiv.net
