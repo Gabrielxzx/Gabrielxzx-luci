@@ -42,6 +42,13 @@ add_static_ip() {
 		set dhcp.@host[-1].leasetime=infinite
 		
 		add dhcp host
+		set dhcp.@host[-1].name=TP_XAP5100HC_1
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=F8:CE:21:6B:5B:68
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.25
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
 		set dhcp.@host[-1].name=PHICOMM_E1
 		set dhcp.@host[-1].dns=1
 		set dhcp.@host[-1].mac=68:DB:54:DC:D8:DD
@@ -91,10 +98,17 @@ add_static_ip() {
 		set dhcp.@host[-1].leasetime=infinite
 
 		add dhcp host
-		set dhcp.@host[-1].name=TL-SG2008D
+		set dhcp.@host[-1].name=TL_SG2008D_1
 		set dhcp.@host[-1].dns=1
 		set dhcp.@host[-1].mac=3C:6A:48:2E:FA:35
 		set dhcp.@host[-1].ip=${1}.${2}.${3}.40
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=TL_SG2008D_2
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=98:97:CC:5C:EB:59
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.41
 		set dhcp.@host[-1].leasetime=infinite
 		
 		add dhcp host
@@ -102,6 +116,48 @@ add_static_ip() {
 		set dhcp.@host[-1].dns=1
 		set dhcp.@host[-1].mac=D6:90:C6:2C:A4:D4
 		set dhcp.@host[-1].ip=${1}.${2}.${3}.50
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=UG_DXP4800_PLUS
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=6C:1F:F7:8E:68:7D
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.51
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=FNOS_NAS
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=E6:1D:85:A0:73:F1
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.52
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=UG_FNOS
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=52:54:00:49:15:55
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.53
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=XiaoMi_CenterGateway
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=B8:88:80:83:6A:FE
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.60
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=XiaoMi_Gateway2
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=18:C2:3C:57:EF:D1
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.61
+		set dhcp.@host[-1].leasetime=infinite
+		
+		add dhcp host
+		set dhcp.@host[-1].name=DESKTOP_NEC8
+		set dhcp.@host[-1].dns=1
+		set dhcp.@host[-1].mac=98:FA:9B:C1:45:AE
+		set dhcp.@host[-1].ip=${1}.${2}.${3}.80
 		set dhcp.@host[-1].leasetime=infinite
 		
 		commit dhcp
@@ -119,15 +175,23 @@ fix_static_ip() {
 		set dhcp.@host[2].ip=${1}.${2}.${3}.22
 		set dhcp.@host[3].ip=${1}.${2}.${3}.23
 		set dhcp.@host[4].ip=${1}.${2}.${3}.24
-		set dhcp.@host[5].ip=${1}.${2}.${3}.30
-		set dhcp.@host[6].ip=${1}.${2}.${3}.31
-		set dhcp.@host[7].ip=${1}.${2}.${3}.32
-		set dhcp.@host[8].ip=${1}.${2}.${3}.33
-		set dhcp.@host[9].ip=${1}.${2}.${3}.34
-		set dhcp.@host[10].ip=${1}.${2}.${3}.35
-		set dhcp.@host[11].ip=${1}.${2}.${3}.36
-		set dhcp.@host[12].ip=${1}.${2}.${3}.40
-		set dhcp.@host[13].ip=${1}.${2}.${3}.50
+		set dhcp.@host[5].ip=${1}.${2}.${3}.25
+		set dhcp.@host[6].ip=${1}.${2}.${3}.30
+		set dhcp.@host[7].ip=${1}.${2}.${3}.31
+		set dhcp.@host[8].ip=${1}.${2}.${3}.32
+		set dhcp.@host[9].ip=${1}.${2}.${3}.33
+		set dhcp.@host[10].ip=${1}.${2}.${3}.34
+		set dhcp.@host[11].ip=${1}.${2}.${3}.35
+		set dhcp.@host[12].ip=${1}.${2}.${3}.36
+		set dhcp.@host[13].ip=${1}.${2}.${3}.40
+		set dhcp.@host[14].ip=${1}.${2}.${3}.41
+		set dhcp.@host[15].ip=${1}.${2}.${3}.50
+		set dhcp.@host[16].ip=${1}.${2}.${3}.51
+		set dhcp.@host[17].ip=${1}.${2}.${3}.52
+		set dhcp.@host[18].ip=${1}.${2}.${3}.53
+		set dhcp.@host[19].ip=${1}.${2}.${3}.60
+		set dhcp.@host[20].ip=${1}.${2}.${3}.61
+		set dhcp.@host[21].ip=${1}.${2}.${3}.80
 		
 		commit dhcp
 	EOF
@@ -139,6 +203,14 @@ fix_static_ip() {
 remove_static_ip() {
 
 	uci -q batch <<-EOF >/dev/null
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
+		delete dhcp.@host[-1]
 		delete dhcp.@host[-1]
 		delete dhcp.@host[-1]
 		delete dhcp.@host[-1]
