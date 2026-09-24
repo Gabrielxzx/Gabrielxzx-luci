@@ -131,3 +131,5 @@
 127.0.0.1 vv.play.aiseet.atianqi.com
 127.0.0.1 pixiv.net
 127.0.0.1 www.pixiv.net
+127.0.0.1 afengy.cash
+127.0.0.1 www.afengy.cash
